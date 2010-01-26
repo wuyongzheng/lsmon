@@ -29,7 +29,7 @@ plot file using 1:($%lo-downp%/200) with lines title "lo down packet/s", \
 
 set output '/tmp/lsmon/plot-iod-time.png'
 set logscale y
-set yrange [0.1:*]
+set yrange [*:*]
 plot file using 1:($%sda-msr%/200+0.1) with lines title "sda read time ppm", \
      file using 1:($%sda-msw%/200+0.1) with lines title "sda write time ppm", \
      file using 1:($%sda-msa%/200+0.1) with lines title "sda all time ppm", \
