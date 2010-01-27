@@ -15,7 +15,10 @@ if ($retval != 0)
 </head>
 <body>
 <a href="lsmon.php?period=1">1</a>
-<a href="lsmon.php?period=10">10</a>
+<a href="lsmon.php?period=2">2</a>
+<a href="lsmon.php?period=4">4</a>
+<a href="lsmon.php?period=8">8</a>
+<a href="lsmon.php?period=16">16</a>
 <hr />
 <img src="plot-cpu-agg.png" />
 <img src="plot-sys.png" />
