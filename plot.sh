@@ -1,7 +1,10 @@
 #!/bin/bash
 
-LSMONDIR=/home/atp/app/lsmon
-GNUPLOT=/usr/bin/gnuplot
+if [ ! -f config.rc ] ; then
+	echo config.rc not found
+	exit 1
+fi
+source config.rc
 
 if [ $# -ne 2 ] ; then
 	echo Usage: plot.sh period points

@@ -2,6 +2,8 @@
 
 INTERVAL=60
 NCPU=8
+LSMONDIR=/home/atp/app/lsmon
+GNUPLOT=/usr/bin/gnuplot
 
 function readvars () {
 	#DEFVAR lo-downb:a lo-downp:a lo-upb:a lo-upp:a eth0-downb:a eth0-downp:a eth0-upb:a eth0-upp:a
