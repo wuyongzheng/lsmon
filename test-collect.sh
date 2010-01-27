@@ -6,4 +6,10 @@ if [ ! -f config.rc ] ; then
 fi
 source config.rc
 
-readvars
+echo -n 'expected var count '
+grep '#DEFVAR' config.rc | sed -e 's/.*DEFVAR //g' | wc -w
+vars=`readvars`
+echo -n 'actual var count '
+echo $vars | wc -w
+echo 'vars:'
+echo $vars

@@ -9,7 +9,7 @@ function readvars () {
 	#DEFVAR lo-downb:a lo-downp:a lo-upb:a lo-upp:a eth0-downb:a eth0-downp:a eth0-upb:a eth0-upp:a
 	grep : /proc/net/dev | sed -e 's/:/ /g' -e 's/  */ /g' -e 's/^ //g' | sort | cut -d ' ' -f 2,3,10,11
 	#DEFVAR sda-msr:a sda-msw:a sda-msa:a sdb-msr:a sdb-msw:a sdb-msa:a sdc-msr:a sdc-msw:a sdc-msa:a
-	grep ' sd[abc] ' /proc/diskstats | sed -e 's/:/ /g' -e 's/  */ /g' -e 's/^ //g' | cut -d ' ' -f 7,10,13
+	grep ' sd[abc] ' /proc/diskstats | sed -e 's/  */ /g' -e 's/^ //g' | cut -d ' ' -f 7,10,13
 	#DEFVAR sda1-r:a sda1-w:a sda2-r:a sda2-w:a sda3-r:a sda3-w:a sda4-r:a sda4-w:a
 	#DEFVAR sdb6-r:a sdb6-w:a sdc4-r:a sdc4-w:a
 	grep -E ' sd(a1)|(a2)|(a3)|(a4)|(b6)|(c4) ' /proc/diskstats | sed -e 's/:/ /g' -e 's/  */ /g' -e 's/^ //g' | cut -d ' ' -f 5,7
@@ -22,9 +22,11 @@ function readvars () {
 	#DEFVAR cpu5-u:a cpu5-s:a cpu5-i:a
 	#DEFVAR cpu6-u:a cpu6-s:a cpu6-i:a
 	#DEFVAR cpu7-u:a cpu7-s:a cpu7-i:a
-	grep ^cpu /proc/stat | sed -e 's/:/ /g' -e 's/  */ /g' -e 's/^ //g' | cut -d ' ' -f 2,4,5
+	grep ^cpu /proc/stat | sed -e 's/  */ /g' -e 's/^ //g' | cut -d ' ' -f 2,4,5
 	#DEFVAR sys-intr:a sys-ctxt:a proc:a
 	grep -E '(intr)|(ctxt)|(processes)' /proc/stat | cut -d ' ' -f 2
+	#DEFVAR mem-free:i mem-buff:i mem-cache:i mem-swap:i mem-act:i mem-ina:i
+	grep -E '^(MemFree:)|(Buffers:)|(Cached:)|(SwapCached:)|(Active:)|(Inactive:)' /proc/meminfo | sed -e 's/ kB//g' -e 's/.* //g'
 	#DEFVAR ping-dns-l:i ping-dns-t:i
 	ping -c 5 -W 10 137.132.85.2 >/tmp/lsmon/ping.out
 	grep transmitted /tmp/lsmon/ping.out | sed -e 's/.*received, //g' -e 's/% packet loss.*//g'

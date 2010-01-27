@@ -20,9 +20,8 @@ if ($retval != 0)
 <img src="plot-cpu-agg.png" />
 <img src="plot-sys.png" />
 <img src="plot-proc.png" />
-<img src="plot-cpu-u.png" />
-<img src="plot-cpu-s.png" />
-<img src="plot-cpu-i.png" />
+<hr />
+<img src="plot-mem.png" />
 <hr />
 <img src="plot-iod-time.png" />
 <img src="plot-iob1-bytes.png" />

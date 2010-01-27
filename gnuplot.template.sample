@@ -116,6 +116,17 @@ set yrange [*:*]
 plot file using 1:($%proc%/%interval%) with lines title "process/s"
 
 
+set output '/tmp/lsmon/plot-mem.png'
+unset logscale
+set yrange [*:*]
+plot file using 1:%mem-free% with lines title "free KB", \
+     file using 1:%mem-buff% with lines title "buffer KB", \
+     file using 1:%mem-cache% with lines title "cache KB", \
+     file using 1:%mem-swap% with lines title "swap KB", \
+     file using 1:%mem-act% with lines title "active KB", \
+     file using 1:%mem-ina% with lines title "inactive KB"
+
+
 set output '/tmp/lsmon/plot-ping-loss.png'
 unset logscale
 set yrange [0:100]
