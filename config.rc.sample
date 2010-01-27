@@ -1,4 +1,7 @@
+#!/bin/bash
+
 INTERVAL=60
+NCPU=8
 
 function readvars () {
 	#DEFVAR lo-downb:a lo-downp:a lo-upb:a lo-upp:a eth0-downb:a eth0-downp:a eth0-upb:a eth0-upp:a
@@ -33,3 +36,4 @@ function readvars () {
 	grep transmitted /tmp/lsmon/ping.out | sed -e 's/.*received, //g' -e 's/% packet loss.*//g'
 	grep -h rtt /tmp/lsmon/ping.out dummyrtt.txt | head -n 1 | cut -d / -f 5
 }
+
