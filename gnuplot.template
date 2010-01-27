@@ -15,8 +15,8 @@ set output '/tmp/lsmon/plot-net-bytes.png'
 set logscale y
 set yrange [0.1:1000]
 plot file using 1:($%lo-downb%/1000/%interval%) with lines title "lo down kB/s", \
-     file using 1:($%lo-upb%/1000/%interval%/) with lines title "lo up kB/s", \
-     file using 1:($%eth0-downb%/1000/%interval%/) with lines title "eth0 down kB/s", \
+     file using 1:($%lo-upb%/1000/%interval%) with lines title "lo up kB/s", \
+     file using 1:($%eth0-downb%/1000/%interval%) with lines title "eth0 down kB/s", \
      file using 1:($%eth0-upb%/1000/%interval%) with lines title "eth0 up kB/s"
 
 set output '/tmp/lsmon/plot-net-packets.png'
