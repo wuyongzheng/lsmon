@@ -63,9 +63,9 @@ plot file using 1:($%sda4-r%/200+0.01) with lines title "/home read sector/s", \
 set output '/tmp/lsmon/plot-cpu-agg.png'
 unset logscale
 set yrange [0:*]
-plot file using 1:($%cpu-u%/200) with lines title "User %", \
-     file using 1:($%cpu-s%/200) with lines title "System %", \
-     file using 1:(100 - $%cpu-i%/200) with lines title "1 - Idle %"
+plot file using 1:($%cpu-u%/200/8) with lines title "User %", \
+     file using 1:($%cpu-s%/200/8) with lines title "System %", \
+     file using 1:(100 - $%cpu-i%/200/8) with lines title "1 - Idle %"
 
 set output '/tmp/lsmon/plot-cpu-u.png'
 unset logscale
