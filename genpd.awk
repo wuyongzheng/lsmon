@@ -1,6 +1,6 @@
 BEGIN {
 	FS = "\t";
-	"grep '#DEFVAR' collect.sh | sed -e 's/.*DEFVAR //g' -e 's/[^ ]*://g' | tr '\n ' '\t'" | getline x;
+	"grep '#DEFVAR' config.rc | sed -e 's/.*DEFVAR //g' -e 's/[^ ]*://g' | tr '\n ' '\t'" | getline x;
 	split(x, type);
 	prevts = 0;
 	if (!period)

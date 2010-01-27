@@ -14,106 +14,106 @@ set key left top
 set output '/tmp/lsmon/plot-net-bytes.png'
 set logscale y
 set yrange [0.1:1000]
-plot file using 1:($%lo-downb%/200000) with lines title "lo down kB/s", \
-     file using 1:($%lo-upb%/200000) with lines title "lo up kB/s", \
-     file using 1:($%eth0-downb%/200000) with lines title "eth0 down kB/s", \
-     file using 1:($%eth0-upb%/200000) with lines title "eth0 up kB/s"
+plot file using 1:($%lo-downb%/1000/%interval%) with lines title "lo down kB/s", \
+     file using 1:($%lo-upb%/1000/%interval%/) with lines title "lo up kB/s", \
+     file using 1:($%eth0-downb%/1000/%interval%/) with lines title "eth0 down kB/s", \
+     file using 1:($%eth0-upb%/1000/%interval%) with lines title "eth0 up kB/s"
 
 set output '/tmp/lsmon/plot-net-packets.png'
 set logscale y
 set yrange [0.1:1000]
-plot file using 1:($%lo-downp%/200) with lines title "lo down packet/s", \
-     file using 1:($%lo-upp%/200) with lines title "lo up packet/s", \
-     file using 1:($%eth0-downp%/200) with lines title "eth0 down packet/s", \
-     file using 1:($%eth0-upp%/200) with lines title "eth0 up packet/s"
+plot file using 1:($%lo-downp%/%interval%) with lines title "lo down packet/s", \
+     file using 1:($%lo-upp%/%interval%) with lines title "lo up packet/s", \
+     file using 1:($%eth0-downp%/%interval%) with lines title "eth0 down packet/s", \
+     file using 1:($%eth0-upp%/%interval%) with lines title "eth0 up packet/s"
 
 set output '/tmp/lsmon/plot-iod-time.png'
 set logscale y
 set yrange [*:*]
-plot file using 1:($%sda-msr%/200+0.1) with lines title "sda read time ppm", \
-     file using 1:($%sda-msw%/200+0.1) with lines title "sda write time ppm", \
-     file using 1:($%sda-msa%/200+0.1) with lines title "sda all time ppm", \
-     file using 1:($%sdb-msr%/200+0.1) with lines title "sdb read time ppm", \
-     file using 1:($%sdb-msw%/200+0.1) with lines title "sdb write time ppm", \
-     file using 1:($%sdb-msa%/200+0.1) with lines title "sdb all time ppm", \
-     file using 1:($%sdc-msr%/200+0.1) with lines title "sdc read time ppm", \
-     file using 1:($%sdc-msw%/200+0.1) with lines title "sdc write time ppm", \
-     file using 1:($%sdc-msa%/200+0.1) with lines title "sdc all time ppm"
+plot file using 1:($%sda-msr%/%interval%+0.1) with lines title "sda read time ppm", \
+     file using 1:($%sda-msw%/%interval%+0.1) with lines title "sda write time ppm", \
+     file using 1:($%sda-msa%/%interval%+0.1) with lines title "sda all time ppm", \
+     file using 1:($%sdb-msr%/%interval%+0.1) with lines title "sdb read time ppm", \
+     file using 1:($%sdb-msw%/%interval%+0.1) with lines title "sdb write time ppm", \
+     file using 1:($%sdb-msa%/%interval%+0.1) with lines title "sdb all time ppm", \
+     file using 1:($%sdc-msr%/%interval%+0.1) with lines title "sdc read time ppm", \
+     file using 1:($%sdc-msw%/%interval%+0.1) with lines title "sdc write time ppm", \
+     file using 1:($%sdc-msa%/%interval%+0.1) with lines title "sdc all time ppm"
 
 set output '/tmp/lsmon/plot-iob1-bytes.png'
 set logscale y
 set yrange [*:*]
-plot file using 1:($%sda1-r%/200+0.01) with lines title "/ read sector/s", \
-     file using 1:($%sda1-w%/200+0.01) with lines title "/ write sector/s", \
-     file using 1:($%sda2-r%/200+0.01) with lines title "swap read sector/s", \
-     file using 1:($%sda2-w%/200+0.01) with lines title "swap write sector/s", \
-     file using 1:($%sda3-r%/200+0.01) with lines title "/var read sector/s", \
-     file using 1:($%sda3-w%/200+0.01) with lines title "/var write sector/s"
+plot file using 1:($%sda1-r%/%interval%+0.01) with lines title "/ read sector/s", \
+     file using 1:($%sda1-w%/%interval%+0.01) with lines title "/ write sector/s", \
+     file using 1:($%sda2-r%/%interval%+0.01) with lines title "swap read sector/s", \
+     file using 1:($%sda2-w%/%interval%+0.01) with lines title "swap write sector/s", \
+     file using 1:($%sda3-r%/%interval%+0.01) with lines title "/var read sector/s", \
+     file using 1:($%sda3-w%/%interval%+0.01) with lines title "/var write sector/s"
 
 set output '/tmp/lsmon/plot-iob2-bytes.png'
 set logscale y
 set yrange [*:*]
-plot file using 1:($%sda4-r%/200+0.01) with lines title "/home read sector/s", \
-     file using 1:($%sda4-w%/200+0.01) with lines title "/home write sector/s", \
-     file using 1:($%sdb6-r%/200+0.01) with lines title "/home2 read sector/s", \
-     file using 1:($%sdb6-w%/200+0.01) with lines title "/home2 write sector/s", \
-     file using 1:($%sdc4-r%/200+0.01) with lines title "/home3 read sector/s", \
-     file using 1:($%sdc4-w%/200+0.01) with lines title "/home3 write sector/s"
+plot file using 1:($%sda4-r%/%interval%+0.01) with lines title "/home read sector/s", \
+     file using 1:($%sda4-w%/%interval%+0.01) with lines title "/home write sector/s", \
+     file using 1:($%sdb6-r%/%interval%+0.01) with lines title "/home2 read sector/s", \
+     file using 1:($%sdb6-w%/%interval%+0.01) with lines title "/home2 write sector/s", \
+     file using 1:($%sdc4-r%/%interval%+0.01) with lines title "/home3 read sector/s", \
+     file using 1:($%sdc4-w%/%interval%+0.01) with lines title "/home3 write sector/s"
 
 set output '/tmp/lsmon/plot-cpu-agg.png'
 unset logscale
 set yrange [0:*]
-plot file using 1:($%cpu-u%/200/8) with lines title "User %", \
-     file using 1:($%cpu-s%/200/8) with lines title "System %", \
-     file using 1:(100 - $%cpu-i%/200/8) with lines title "1 - Idle %"
+plot file using 1:($%cpu-u%/8/%interval%) with lines title "User %", \
+     file using 1:($%cpu-s%/8/%interval%) with lines title "System %", \
+     file using 1:(100 - $%cpu-i%/8/%interval%) with lines title "1 - Idle %"
 
 set output '/tmp/lsmon/plot-cpu-u.png'
 unset logscale
 set yrange [0:*]
-plot file using 1:($%cpu0-u%/200) with lines title "CPU0 User %", \
-     file using 1:($%cpu1-u%/200) with lines title "CPU1 User %", \
-     file using 1:($%cpu2-u%/200) with lines title "CPU2 User %", \
-     file using 1:($%cpu3-u%/200) with lines title "CPU3 User %", \
-     file using 1:($%cpu4-u%/200) with lines title "CPU4 User %", \
-     file using 1:($%cpu5-u%/200) with lines title "CPU5 User %", \
-     file using 1:($%cpu6-u%/200) with lines title "CPU6 User %", \
-     file using 1:($%cpu7-u%/200) with lines title "CPU7 User %"
+plot file using 1:($%cpu0-u%/%interval%) with lines title "CPU0 User %", \
+     file using 1:($%cpu1-u%/%interval%) with lines title "CPU1 User %", \
+     file using 1:($%cpu2-u%/%interval%) with lines title "CPU2 User %", \
+     file using 1:($%cpu3-u%/%interval%) with lines title "CPU3 User %", \
+     file using 1:($%cpu4-u%/%interval%) with lines title "CPU4 User %", \
+     file using 1:($%cpu5-u%/%interval%) with lines title "CPU5 User %", \
+     file using 1:($%cpu6-u%/%interval%) with lines title "CPU6 User %", \
+     file using 1:($%cpu7-u%/%interval%) with lines title "CPU7 User %"
 
 set output '/tmp/lsmon/plot-cpu-s.png'
 unset logscale
 set yrange [0:*]
-plot file using 1:($%cpu0-s%/200) with lines title "CPU0 System %", \
-     file using 1:($%cpu1-s%/200) with lines title "CPU1 System %", \
-     file using 1:($%cpu2-s%/200) with lines title "CPU2 System %", \
-     file using 1:($%cpu3-s%/200) with lines title "CPU3 System %", \
-     file using 1:($%cpu4-s%/200) with lines title "CPU4 System %", \
-     file using 1:($%cpu5-s%/200) with lines title "CPU5 System %", \
-     file using 1:($%cpu6-s%/200) with lines title "CPU6 System %", \
-     file using 1:($%cpu7-s%/200) with lines title "CPU7 System %"
+plot file using 1:($%cpu0-s%/%interval%) with lines title "CPU0 System %", \
+     file using 1:($%cpu1-s%/%interval%) with lines title "CPU1 System %", \
+     file using 1:($%cpu2-s%/%interval%) with lines title "CPU2 System %", \
+     file using 1:($%cpu3-s%/%interval%) with lines title "CPU3 System %", \
+     file using 1:($%cpu4-s%/%interval%) with lines title "CPU4 System %", \
+     file using 1:($%cpu5-s%/%interval%) with lines title "CPU5 System %", \
+     file using 1:($%cpu6-s%/%interval%) with lines title "CPU6 System %", \
+     file using 1:($%cpu7-s%/%interval%) with lines title "CPU7 System %"
 
 set output '/tmp/lsmon/plot-cpu-i.png'
 unset logscale
 set yrange [0:*]
-plot file using 1:(100 - $%cpu0-i%/200) with lines title "CPU0 1 - Idle %", \
-     file using 1:(100 - $%cpu1-i%/200) with lines title "CPU1 1 - Idle %", \
-     file using 1:(100 - $%cpu2-i%/200) with lines title "CPU2 1 - Idle %", \
-     file using 1:(100 - $%cpu3-i%/200) with lines title "CPU3 1 - Idle %", \
-     file using 1:(100 - $%cpu4-i%/200) with lines title "CPU4 1 - Idle %", \
-     file using 1:(100 - $%cpu5-i%/200) with lines title "CPU5 1 - Idle %", \
-     file using 1:(100 - $%cpu6-i%/200) with lines title "CPU6 1 - Idle %", \
-     file using 1:(100 - $%cpu7-i%/200) with lines title "CPU7 1 - Idle %"
+plot file using 1:(100 - $%cpu0-i%/%interval%) with lines title "CPU0 1 - Idle %", \
+     file using 1:(100 - $%cpu1-i%/%interval%) with lines title "CPU1 1 - Idle %", \
+     file using 1:(100 - $%cpu2-i%/%interval%) with lines title "CPU2 1 - Idle %", \
+     file using 1:(100 - $%cpu3-i%/%interval%) with lines title "CPU3 1 - Idle %", \
+     file using 1:(100 - $%cpu4-i%/%interval%) with lines title "CPU4 1 - Idle %", \
+     file using 1:(100 - $%cpu5-i%/%interval%) with lines title "CPU5 1 - Idle %", \
+     file using 1:(100 - $%cpu6-i%/%interval%) with lines title "CPU6 1 - Idle %", \
+     file using 1:(100 - $%cpu7-i%/%interval%) with lines title "CPU7 1 - Idle %"
 
 set output '/tmp/lsmon/plot-sys.png'
 set logscale y
 set yrange [0.1:*]
-plot file using 1:($%sys-intr%/200) with lines title "interrupt/s", \
-     file using 1:($%sys-ctxt%/200) with lines title "ctx switch/s"
+plot file using 1:($%sys-intr%/%interval%) with lines title "interrupt/s", \
+     file using 1:($%sys-ctxt%/%interval%) with lines title "ctx switch/s"
 
 
 set output '/tmp/lsmon/plot-proc.png'
 unset logscale
 set yrange [*:*]
-plot file using 1:($%proc%/200) with lines title "process/s"
+plot file using 1:($%proc%/%interval%) with lines title "process/s"
 
 
 set output '/tmp/lsmon/plot-ping-loss.png'
