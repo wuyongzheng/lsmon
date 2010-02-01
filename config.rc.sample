@@ -23,6 +23,8 @@ function readvars () {
 	#DEFVAR cpu6-u:a cpu6-s:a cpu6-i:a
 	#DEFVAR cpu7-u:a cpu7-s:a cpu7-i:a
 	grep ^cpu /proc/stat | sed -e 's/  */ /g' -e 's/^ //g' | cut -d ' ' -f 2,4,5
+	#DEFVAR lavg:i schn:i
+	tr '/' ' ' </proc/loadavg | cut -d ' ' -f 1,5
 	#DEFVAR sys-intr:a sys-ctxt:a proc:a
 	grep -E '(intr)|(ctxt)|(processes)' /proc/stat | cut -d ' ' -f 2
 	#DEFVAR mem-free:i mem-buff:i mem-cache:i mem-swap:i mem-act:i mem-ina:i

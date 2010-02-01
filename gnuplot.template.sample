@@ -115,6 +115,11 @@ unset logscale
 set yrange [*:*]
 plot file using 1:($%proc%/%interval%) with lines title "process/s"
 
+set output '/tmp/lsmon/plot-sched.png'
+unset logscale
+set yrange [0:*]
+plot file using 1:%lavg% with lines title "1 minutes loadavg", \
+     file using 1:($%schn%/100) with lines title "100 sch entity"
 
 set output '/tmp/lsmon/plot-mem.png'
 unset logscale
